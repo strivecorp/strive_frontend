@@ -13,10 +13,10 @@ $(document).ready(function() {
     $.ajax({
         url: "http://localhost:8080/users",
         success: function(result) {
-            resultHash = JSON.parse(result)
-            console.log(resultHash)
+            resultArray = JSON.parse(result)
+            console.log(resultArray)
             $("#inject-content").ready(function() {
-                var template = feedTemplate.replace("##_FIRST_NAME_##", resultHash["firstname"])
+                var template = feedTemplate.replace("##_FIRST_NAME_##", resultArray[0]["firstname"])
                 appendHtml(document.getElementById("inject-feed"), template)
             })
         }
