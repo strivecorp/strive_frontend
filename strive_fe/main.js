@@ -57,7 +57,6 @@ $(document).ready(function() {
             console.log(resultArray)
             $("#inject-content").ready(function() {
             for (var i = 0; i < resultArray.length; i++) {
-              const likesNum = resultArray[i]["likes-array"].length
               var templateData = feedTemplate
               if ("milestone" in resultArray[i]){
                 milestoneHash = resultArray[i]["milestone"]
