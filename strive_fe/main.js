@@ -88,6 +88,48 @@ $(document).ready(function() {
         }
     });
 
+    $("#newGoalButton").click(function() {
+      console.log("ding");
+      $("#fancyModal").addClass("is-active");
+    });
+
+    $("#submitGoal").click(function() {
+      console.log("dong");
+      $("#fancyModal").removeClass("is-active");
+      var podatki = {};
+      podatki.id=10000;
+      podatki.user={};
+      podatki.user.id=123;
+      podatki.user.firstname="Janez";
+      podatki.user.lastname="Novak";
+      podatki.user.profilepic = "##__BASE64__##";
+      podatki.user.email = "janez@demo";
+      podatki.milestone = {};
+      podatki.milestone.goal = {};
+      podatki.milestone.goal.id = 10000;
+      podatki.milestone.goal.user = {};
+      podatki.milestone.goal.user.id=123;
+      podatki.milestone.goal.user.firstname="Janez";
+      podatki.milestone.goal.user.lastname="Novak";
+      podatki.milestone.goal.user.profilepic = "##__BASE64__##";
+      podatki.milestone.goal.user.email = "janez@demo";
+      podatki.milestone.goal["deadline-date-time"] = document.getElementById("textDeadline").value;
+      podatki.milestone.goal.description = document.getElementById("textDescription").value;
+      podatki.milestone.goal.title = document.getElementById("textTitle").value;
+      podatki.milestone.title = document.getElementById("textTitle").value;
+      podatki.milestone.percentage = 0;
+      podatki["likes-array"] = [];
+      $.ajax({
+        url:"http://localhost:8080/add/feed",
+        type:"POST",
+        data:JSON.stringify(podatki),
+        success: function(data) {
+          console.log("goddamn");
+        }
+      });
+
+    })
+
 
 
     /*

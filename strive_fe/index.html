@@ -57,7 +57,7 @@
                     <p style="font-size:15px; color:white;" class="navbar-item has-text-white is-big">Notifications</p>
                 </div>
                 <div class="column right">
-                    <a style="margin-right:4%" class="button is-white is-small">New Goal &nbsp;<i class="fas fa-plus"></i></a>
+                    <a style="margin-right:4%" class="button is-white is-small" id="newGoalButton">New Goal &nbsp;<i class="fas fa-plus"></i></a>
                     <p class="control">
                     </p>
                 </div>
@@ -66,17 +66,19 @@
         <!-- /.hero-head -->
         <!-- .hero-body -->
 
-        <div class="modal">
+        <div class="modal" id="fancyModal">
           <div class="modal-background"></div>
           <div class="modal-content">
             <div class="box">
-              <span style="padding-bottom: 5px; font-size: 120%; text-transform: uppercase">Set a new goal</span>
-              <div style="height:1px; background-color: #ddd; margin-top:5px; margin-bottom: 5px;"></div>
+              <span style="padding-bottom: 15px; font-size: 150%; text-transform: uppercase">Set a new goal</span>
+              <div style="height:1px; background-color: #ddd; margin-top:15px; margin-bottom: 5px;"></div>
               <div style="margin-top: 15px; margin-bottom: 3px; ">Goal title:</div>
-              <textarea class="textarea" placeholder="Add a title" rows="1"></textarea>
+              <textarea class="textarea" placeholder="Add a title" rows="1" id="textTitle"></textarea>
               <div style="margin-top: 15px; margin-bottom: 3px; ">Goal description:</div>
-              <textarea class="textarea" placeholder="Add a description" rows="5"></textarea><br>
-              <a class="button is-fullwidth" style="background-color:purple; color:white;">Strive!</a>
+              <textarea class="textarea" placeholder="Add a description" rows="5" id="textDescription"></textarea>
+              <div style="margin-top: 15px; margin-bottom: 3px; ">Deadline:</div>
+              <textarea class="textarea" placeholder="YYYY-MM-DD" rows="1"  id="textDeadline"></textarea><br>
+              <a class="button is-fullwidth is-large" style="background-color:purple; color:white;" id="submitGoal"><span style="font-size:100%;color:white; letter-spacing: -1px;">Strive!</span></a>
             </div>
           </div>
           <button class="modal-close is-large" style="" aria-label="close"></button>
