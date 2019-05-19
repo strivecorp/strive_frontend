@@ -33,8 +33,8 @@ $(document).ready(function() {
         const minVar = getRandomArbitrary(0,59)
         templateString = templateString.replace("##_AGO_##", hourVar+"h "+minVar+"m ")
       }
-      if(templateString.includes("##_DESCRIPTION_##") && "description" in jsonHash){
-        templateString = templateString.replace("##_DESCRIPTION_##", jsonHash["description"])
+      if(templateString.includes("##_GOAL_NAME_##") && "description" in jsonHash){
+        templateString = templateString.replace("##_GOAL_NAME_##", jsonHash["description"])
       }
       if(templateString.includes("##_CONTENT_##") && "content" in jsonHash){
         templateString = templateString.replace("##_CONTENT_##", jsonHash["content"])
