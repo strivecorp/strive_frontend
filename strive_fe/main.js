@@ -42,6 +42,9 @@ $(document).ready(function() {
       if(templateString.includes("##_TITLE_##") && "title" in jsonHash){
         templateString = templateString.replace("##_TITLE_##", jsonHash["title"])
       }
+      if(templateString.includes("##_PERCENT_##") && "percentage" in jsonHash){
+        templateString = templateString.replace("##_PERCENT_##", jsonHash["percentage"])
+      }
       if(templateString.includes("##_LIKES_##") && "likes-array" in jsonHash){
         const likesNum = jsonHash["likes-array"].length
         templateString = templateString.replace("##_LIKES_##", likesNum)
@@ -85,6 +88,8 @@ $(document).ready(function() {
         }
     });
 
+
+
     /*
         ##_FIRST_NAME_## ##_LAST_NAME_## ##_EMAIL_## ##_AGO_## ##_DESCRIPTION_##"
     */
@@ -97,7 +102,7 @@ $(document).ready(function() {
     <div class='media-content'>
       <div class='content'>
         <p> <strong>##_FIRST_NAME_## ##_LAST_NAME_##</strong> <small>##_EMAIL_##</small> <small>##_AGO_##</small> <br> ##_TITLE_## </p>
-        <br> <br> Time spent: <progress class="progress is-warning" value='75' max='100'>75%</progress>
+        <br> <br> Progress: <progress class="progress is-warning" value='##_PERCENT_##' max='100'>##_PERCENT_##%</progress>
       </div>
       <nav class='level is-mobile'>
         <div class='level-left'>
