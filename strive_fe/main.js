@@ -133,6 +133,40 @@ $(document).ready(function() {
         data:JSON.stringify(podatki),
         success: function(data) {
           console.log("goddamn");
+          $.ajax({
+              url: "http://localhost:8080/feeds",
+              success: function(result) { // completed attr goal instead of milestone
+                  resultArray = JSON.parse(result)
+                  console.log(resultArray)
+                  $("#inject-content").ready(function() {
+                  for (var i = 0; i < resultArray.length; i++) {
+                    var templateData = feedTemplate
+                    if ("milestone" in resultArray[i]){
+                      milestoneHash = resultArray[i]["milestone"]
+                      goalHash = milestoneHash["goal"]
+                      userHash = goalHash["user"]
+
+                      templateData = injectData(resultArray[i],templateData)
+                      templateData = injectData(milestoneHash,templateData)
+                      templateData = injectData(goalHash,templateData)
+                      templateData = injectData(userHash,templateData)
+                    }
+                    if ("goal" in resultArray[i]){
+                      goalHash = resultArray[i]["goal"]
+                      userHash = goalHash["user"]
+
+                      templateData = injectData(resultArray[i],templateData)
+                      templateData = injectData(goalHash,templateData)
+                      templateData = injectData(userHash,templateData)
+                    }
+
+                    console.log(resultArray[i])
+
+                    appendHtml(document.getElementById("inject-feed"), templateData)
+                  }
+                  })
+              }
+          });
         }
       });
 
