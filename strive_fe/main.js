@@ -140,6 +140,7 @@ $(document).ready(function() {
         data:JSON.stringify(podatki),
         success: function(data) {
           console.log("goddamn");
+          window.location.reload(false);
           $.ajax({
               url: "http://localhost:8080/feeds",
               success: function(result) { // completed attr goal instead of milestone
