@@ -28,7 +28,9 @@ $(document).ready(function() {
       if(templateString.includes("##_EMAIL_##") && "email" in jsonHash){
         templateString = templateString.replace("##_EMAIL_##", jsonHash["email"])
       }
-      if(templateString.includes("##_AGO_##")){
+      if(templateString.includes("##_AGO_##") && "user" in jsonHash && "email" in jsonHash["user"] && jsonHash["user"]["email"]=="janez@demo"){
+          templateString = templateString.replace("##_AGO_##"," 0h 0m ")
+      }else if(templateString.includes("##_AGO_##")){
         const hourVar = getRandomArbitrary(1,7)
         const minVar = getRandomArbitrary(0,59)
         templateString = templateString.replace("##_AGO_##", hourVar+"h "+minVar+"m ")
@@ -48,6 +50,12 @@ $(document).ready(function() {
       if(templateString.includes("##_LIKES_##") && "likes-array" in jsonHash){
         const likesNum = jsonHash["likes-array"].length
         templateString = templateString.replace("##_LIKES_##", likesNum)
+      }
+      if(templateString.includes("##_AVATAR_#")){
+        templateString = templateString.replace("##_AVATAR_##", avatarMain)
+      }
+      if("completed" in jsonHash && jsonHash["completed"]==1){
+        templateString = templateString.replace("is-warning", "is-success")
       }
       const template = templateString
       return template
@@ -135,6 +143,7 @@ $(document).ready(function() {
     /*
         ##_FIRST_NAME_## ##_LAST_NAME_## ##_EMAIL_## ##_AGO_## ##_DESCRIPTION_##"
     */
+    const avatarMain = "<p class='image is-32x32'> <img src='images/portrait4.jpg'></p>"
     const avatarNejc = "<p class='image is-32x32'> <img src='http://www.iconninja.com/files/95/401/67/avatar-man-old-person-male-mature-user-icon.png'> </p>"
     const avatarZan = "<p class='image is-32x32'> <img src='http://www.iconninja.com/files/852/501/256/avatar-boy-young-user-kid-child-male-icon.png'> </p>"
     const avatarGregor= "<p class='image is-32x32'> <img src='http://www.iconninja.com/files/511/390/516/office-user-costume-business-avatar-man-male-icon.png'> </p>"
@@ -143,7 +152,7 @@ $(document).ready(function() {
     <figure class='media-left'> ##_AVATAR_## </figure>
     <div class='media-content'>
       <div class='content'>
-        <p> <strong>##_FIRST_NAME_## ##_LAST_NAME_##</strong> <small>##_EMAIL_##</small> <small>##_AGO_##</small> <br> ##_TITLE_## </p>
+        <p> <strong>##_FIRST_NAME_## ##_LAST_NAME_##</strong> <small>##_EMAIL_##</small> <small>##_AGO_## ago</small> <br> ##_TITLE_## </p>
          Progress: &nbsp;<span style="font-weight: bold; font-size: 120%;">##_GOAL_NAME_##</span>
          <progress class="progress is-warning" value='##_PERCENT_##' max='100' style="margin-top:5px">##_PERCENT_##%</progress>
       </div>
