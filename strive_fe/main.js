@@ -15,6 +15,9 @@ $(document).ready(function() {
       if(templateString.includes("##_FIRST_NAME_##") && "firstname" in jsonHash){
         templateString = templateString.replace("##_FIRST_NAME_##", jsonHash["firstname"])
       }
+      if(templateString.includes("##_AVATAR_##") && "user" in jsonHash && "email" in jsonHash["user"] && jsonHash["user"]["email"]=="janez@demo"){
+        templateString = templateString.replace("##_AVATAR_##", avatarMain)
+      }
       if(templateString.includes("##_AVATAR_##") && jsonHash["firstname"]=="Nejc"){
         templateString = templateString.replace("##_AVATAR_##", avatarNejc)
       }else if(templateString.includes("##_AVATAR_##") && jsonHash["firstname"]=="Gregor"){
@@ -50,9 +53,6 @@ $(document).ready(function() {
       if(templateString.includes("##_LIKES_##") && "likes-array" in jsonHash){
         const likesNum = jsonHash["likes-array"].length
         templateString = templateString.replace("##_LIKES_##", likesNum)
-      }
-      if(templateString.includes("##_AVATAR_#")){
-        templateString = templateString.replace("##_AVATAR_##", avatarMain)
       }
       if("completed" in jsonHash && jsonHash["completed"]==1){
         templateString = templateString.replace("is-warning", "is-success")
