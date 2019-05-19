@@ -102,7 +102,7 @@ $(document).ready(function() {
     <div class='media-content'>
       <div class='content'>
         <p> <strong>##_FIRST_NAME_## ##_LAST_NAME_##</strong> <small>##_EMAIL_##</small> <small>##_AGO_##</small> <br> ##_TITLE_## </p>
-         Progress: &nbsp;<span style="font-style: bold; font-size: 120%;">##_GOAL_NAME_##</span>
+         Progress: &nbsp;<span style="font-weight: bold; font-size: 120%;">##_GOAL_NAME_##</span>
          <progress class="progress is-warning" value='##_PERCENT_##' max='100' style="margin-top:5px">##_PERCENT_##%</progress>
       </div>
       <nav class='level is-mobile'>
