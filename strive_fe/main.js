@@ -101,14 +101,14 @@ $(document).ready(function() {
       </div>
       <nav class='level is-mobile'>
         <div class='level-left'>
-        <a class='level-item'>
+        <a class='level-item' style="color:purple">
         <div class="boutline" style="border:1px solid purple; margin:5px; width:50px; height:50px; border-radius:50px;">
           <span class='icon is-small superbutton' style="margin:16px;">
             <i class='fas fa-trophy' style="font-size: 175%"></i>
           </span></div>
           &nbsp ##_LIKES_##
         </a>
-          <a class='level-item'>
+          <a class='level-item' style="color:purple">
             <span class='icon is-small'>
               <i class='fas fa-reply'></i>
             </span>
