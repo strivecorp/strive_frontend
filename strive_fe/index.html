@@ -27,6 +27,24 @@
         .hero {
             background: white center / cover;
         }
+
+        #ouvaley {
+          background-color: purple;
+          width:100%;
+          height:100%;
+          z-index: 10;
+          top:0;
+          left:0;
+          position:fixed;
+        }
+
+        .cawntent {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
         /* @media (max-width: 1024px) { .hero { background: white url(images/rect2big.png) center / cover; } }
 @media (max-width:  768px) { .hero { background: white url(images/rect2big.png) center / cover; } } */
         /* responsive */
@@ -49,7 +67,7 @@
                     <figure class="navbar-item image">
                         <!-- <a>STRIVE for greatness</a> -->
                         <!-- <img src="images/striveLogo1.png" style="width: 6.25rem; height: 1rem;"> -->
-                        <span style="font-size:25px;color:white; letter-spacing: -1px;">STRIVE</span>
+                        <span style="font-size:25px;color:white; letter-spacing: -1px;" id="striveHeaderTitle">STRIVE</span>
                     </figure>
                 </div>
                 <div class="column center desktop" style="letter-spacing: 0px;">
@@ -169,6 +187,10 @@
     </section>
     <!-- /.hero -->
 
+    <div id="ouvaley" style="display:none;"><div class="cawntent"><span style="font-size:180px;color:white; letter-spacing: -8px; background-color:transparent;" id="striveHeaderTitle">Strive</span></div>
+
+
+    </div>
 </body>
 
 </html>

@@ -1,6 +1,13 @@
 // Create a request variable and assign a new XMLHttpRequest object to it.
 
 $(document).ready(function() {
+
+    $("#striveHeaderTitle").click(function(){
+      console.log("ding");
+      console.log($("#ouvaley"));
+      $("#ouvaley").hide().fadeIn(750);
+    });
+
     function appendHtml(el, str) {
         var div = document.createElement('div');
         div.innerHTML = str;
