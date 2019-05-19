@@ -97,6 +97,7 @@ $(document).ready(function() {
     <div class='media-content'>
       <div class='content'>
         <p> <strong>##_FIRST_NAME_## ##_LAST_NAME_##</strong> <small>##_EMAIL_##</small> <small>##_AGO_##</small> <br> ##_TITLE_## </p>
+        <br> <br> Time spent: <progress class="progress is-warning" value='75' max='100'>75%</progress>
       </div>
       <nav class='level is-mobile'>
         <div class='level-left'>
